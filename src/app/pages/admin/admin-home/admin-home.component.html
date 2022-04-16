@@ -1,0 +1,61 @@
+<section class="gradient-custom">
+    <div class="row">
+        <div class="col">
+            <h3 class="text-center">ADMINISTRACION</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <div class="card mt-2">
+                <div class="card-body p-1">
+                    <input type="search" class="form-control" placeholder="Buscar" />
+                </div>
+            </div>
+            <div class="card mt-1">
+                <div class="card-header"> Lista de Productos </div>
+                <div class="card-body p-0">
+                    <ul class="list-group">
+                        <li class="list-group-item" *ngFor="">An item</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="card mt-2">
+                <div class="card-header ">Nuevo Producto</div>
+                <div class="card-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1 " class="form-label ">ID</label>
+                            <input type="form-control " class="form-control " id="exampleFormControlInput1 " placeholder="ID ">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1 " class="form-label ">Nombre de Producto</label>
+                            <input type="form-control " class="form-control " id="exampleFormControlInput1 " placeholder="Producto">
+                        </div>
+                        <div class="mb-3 ">
+                            <label for="exampleFormControlInput1 " class="form-label ">Precio</label>
+                            <input type="number " class="form-control " id="exampleFormControlInput1 " placeholder="Precio ">
+                        </div>
+                        <div class="mb-3 ">
+                            <label for="exampleFormControlInput1 " class="form-label ">Cantidad de producto</label>
+                            <input type="number " class="form-control " id="exampleFormControlInput1 " placeholder="Cantidad ">
+                        </div>
+                        <div class="mb-3 ">
+                            <label for="exampleFormControlTextarea1 " class="form-label ">Descripcion</label>
+                            <input type="form-control " class="form-control " id="exampleFormControlInput1 " placeholder="Descripcion del producto">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Seleccione una imagen</label>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+
+                        <button type="button" class="btn btn-primary m-2">Agregar</button>
+                        <button type="button" class="btn btn-warning m-2">Editar</button>
+                        <button type="button" class="btn btn-danger m-2">Eliminar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

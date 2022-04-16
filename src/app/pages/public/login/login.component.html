@@ -1,0 +1,41 @@
+<section class="h-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+
+                        <div class="mt-md-4">
+
+                            <h2 class="fw-bold mb-2 text-uppercase ">Inicia Sesión</h2>
+                            <p class="text-white-50 mb-5 ">Por favor ingrese su nombre y contraseña</p>
+
+                            <div class="form-outline form-white mb-4 ">
+                                <input type="email " [(ngModel)]="username " id="typeEmailX " placeholder="Username" class="form-control form-control-lg " [ngClass]="{ 'is-invalid': error} " />
+                                <!-- <label class="form-label " for="typeEmailX ">Username</label> -->
+                            </div>
+
+                            <div class="form-outline form-white mb-4 ">
+                                <input type="password " [(ngModel)]="password " id="typePasswordX " placeholder="Password" class="form-control form-control-lg " [ngClass]="{ 'is-invalid': error} " />
+                                <!-- <label class=" form-label " for="typePasswordX ">Password</label> -->
+                            </div>
+                            <div class="alert alert-danger " *ngIf="error ">
+                                <p class="alert-heading ">Debe de ingresar todos los campos</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline-light btn-lg px-5 " type="submit " (click)="login() ">Iniciar Sesion</button>
+                        <br>
+                        <br>
+                        <button class="btn btn-outline-light btn-lg px-5 " type="submit " routerLink="/public/home " (click)="guest() ">Entrar como Invitado</button>
+                    </div>
+
+                    <div>
+                        <p class="mb-3 px-1 text-center">¿No tienes una cuenta? <a href="#! " class="text-white-50 fw-bold ">Registrate</a>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
