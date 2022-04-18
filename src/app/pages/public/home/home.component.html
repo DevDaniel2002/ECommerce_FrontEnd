@@ -6,13 +6,14 @@
                 <h4 class="card-title">{{product.name}}</h4>
                 <h5 class="card-title">Precio: {{product.price}} RD$</h5>
                 <p class="card-text">{{product.description}}</p>
+                <input value="1" step="1" min="1" size="2" class="mb-4" name="Quantity" type="number" [(ngModel)]="cantidad">
                 <button type="button" class="btn btn-primary" data-bs-target="#compra" data-bs-toggle="modal" (click)="seleccionarProducto(product)">Comprar ahora</button>
             </div>
         </div>
     </div>
 </div>
 
-<div class="modal" tabindex="-1" role="dialog" id="compra">
+<div class="modal " tabindex="-1 " role="dialog" id="compra">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -22,11 +23,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>Usted esta comprando el producto: {{productoSeleccionado?.name}} por un valor de {{productoSeleccionado?.price}} RD$</p>
+                <p>Usted esta comprando {{cantidad}} de {{productoSeleccionado?.name}} por un valor de {{(productoSeleccionado?.price)*cantidad}} RD$</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="alert()">Comprar</button>
-                <button type=" button " class="btn btn-dager" data-bs-dismiss="modal">Cancelar Compra</button>
+                <button type=" button" class="btn btn-dager" data-bs-dismiss="modal">Cancelar Compra</button>
             </div>
         </div>
     </div>

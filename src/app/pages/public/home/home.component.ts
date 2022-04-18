@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
   products: Products[] = []
   _products: Products[] = []
   productoSeleccionado: any
+  cantidad: number = 1;
 
   constructor(private productservice: ProductService) { }
 
@@ -27,18 +28,24 @@ export class HomeComponent implements OnInit {
         this._products = result.data;
         this.productoSeleccionado = undefined;
       }
-      console.log(result)
     });
   }
 
   seleccionarProducto(producto: Products){
     this.productoSeleccionado = producto;
-    console.log(this.productoSeleccionado);
-
   }
 
   alert(){
     alert(`El producto ${this.productoSeleccionado.name} ha sido comprado con éxito`);
   }
-
+  
+  sumar(){
+    this.productoSeleccionado.quantity = this.productoSeleccionado.quantity + 1;
+  }
+  restar(){
+    this.productoSeleccionado.quantity = this.productoSeleccionado.quantity - 1;
+  }
+  update(){
+    this.productservice.update(this.productoSeleccionado);
+  }
 }

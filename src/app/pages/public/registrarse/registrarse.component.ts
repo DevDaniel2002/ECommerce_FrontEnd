@@ -24,7 +24,7 @@ export class RegistrarseComponent implements OnInit {
     let obj = this.nuevousuarioform.value;
     obj.role = Number(obj.role);
     console.log(obj);
-
+    
     this.userservice.insert(obj).subscribe((result: any)=>{
       if(result.success){
         this.router.navigate(['/public/login']);
