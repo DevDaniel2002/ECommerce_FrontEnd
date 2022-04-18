@@ -7,30 +7,28 @@
 
                         <div class="mt-md-4">
 
-                            <h2 class="fw-bold mb-2 text-uppercase ">Inicia Sesión</h2>
+                            <h2 class="fw-bold mb-2 text-uppercase">Inicia Sesión</h2>
                             <p class="text-white-50 mb-5 ">Por favor ingrese su nombre y contraseña</p>
 
-                            <div class="form-outline form-white mb-4 ">
-                                <input type="email " [(ngModel)]="username " id="typeEmailX " placeholder="Username" class="form-control form-control-lg " [ngClass]="{ 'is-invalid': error} " />
-                                <!-- <label class="form-label " for="typeEmailX ">Username</label> -->
+                            <div class="form-outline form-white mb-4">
+                                <input type="email" [(ngModel)]="username " id="typeEmailX " placeholder="Username" class="form-control form-control-lg" [ngClass]="{ 'is-invalid': error}" />
                             </div>
 
-                            <div class="form-outline form-white mb-4 ">
-                                <input type="password " [(ngModel)]="password " id="typePasswordX " placeholder="Password" class="form-control form-control-lg " [ngClass]="{ 'is-invalid': error} " />
-                                <!-- <label class=" form-label " for="typePasswordX ">Password</label> -->
+                            <div class="form-outline form-white mb-4">
+                                <input type="password" [(ngModel)]="password " id="typePasswordX " placeholder="Password" class="form-control form-control-lg" [ngClass]="{ 'is-invalid': error}" />
                             </div>
-                            <div class="alert alert-danger " *ngIf="error ">
-                                <p class="alert-heading ">Debe de ingresar todos los campos</p>
+                            <div class="alert alert-danger" *ngIf="error ">
+                                <p class="alert-heading">{{msgerror}}</p>
                             </div>
                         </div>
-                        <button class="btn btn-outline-light btn-lg px-5 " type="submit " (click)="login() ">Iniciar Sesion</button>
+                        <button class="btn btn-outline-light btn-lg px-5" type="submit" (click)="login()">Iniciar Sesion</button>
                         <br>
                         <br>
-                        <button class="btn btn-outline-light btn-lg px-5 " type="submit " routerLink="/public/home " (click)="guest() ">Entrar como Invitado</button>
+                        <button class="btn btn-outline-light btn-lg px-5" type="submit" routerLink="/public/home" (click)="guest()">Entrar como Invitado</button>
                     </div>
 
                     <div>
-                        <p class="mb-3 px-1 text-center">¿No tienes una cuenta? <a href="#! " class="text-white-50 fw-bold ">Registrate</a>
+                        <p class="mb-3 px-1 text-center">¿No tienes una cuenta? <a routerLink="/public/registrarse" class="text-white-50 fw-bold ">Registrate</a>
                         </p>
                     </div>
 

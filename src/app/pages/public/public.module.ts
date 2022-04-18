@@ -5,6 +5,7 @@ import { HomeComponent, LoginComponent } from './public.index';
 import { HttpClientModule } from '@angular/common/http';
 import { PublicRoutingModule } from './public.routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RegistrarseComponent } from './registrarse/registrarse.component';
 
 
 
@@ -23,7 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ],
     declarations: [
         HomeComponent,
-        LoginComponent
+        LoginComponent,
+        RegistrarseComponent
     ],
     providers: [],
 })

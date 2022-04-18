@@ -5,5 +5,5 @@ export interface Products {
     description : string
     quantity : number
     state : boolean
-    image : Uint8Array
+    image : any
 }

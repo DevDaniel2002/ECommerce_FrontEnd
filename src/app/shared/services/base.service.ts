@@ -33,10 +33,10 @@ export class BaseService<T extends baseEntity > {
   }
 
   public update(item: T): Observable<T> {
-    return this._http.put<T>(`${this.baseUrl}/${this._controlName}/${item['id']}`, item);
+    return this._http.put<T>(`${this.baseUrl}/${this._controlName}`, item);
   }
 
-  public delete(id: number): Observable<T> {
+  public delete(id: number | string): Observable<T> {
     return this._http.delete<T>(`${this.baseUrl}/${this._controlName}/${id}`);
   }
 }

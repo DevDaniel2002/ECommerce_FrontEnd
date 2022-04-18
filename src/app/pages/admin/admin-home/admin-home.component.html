@@ -1,4 +1,4 @@
-<section class="gradient-custom">
+<section class="p-3">
     <div class="row">
         <div class="col">
             <h3 class="text-center">ADMINISTRACION</h3>
@@ -8,54 +8,94 @@
         <div class="col-3">
             <div class="card mt-2">
                 <div class="card-body p-1">
-                    <input type="search" class="form-control" placeholder="Buscar" />
+                    <input type="search" class="form-control" placeholder="Buscar" (search)="search($event)" (keyup)="search($event)" />
                 </div>
             </div>
-            <div class="card mt-1">
+            <div class="card mt-1 list-card">
                 <div class="card-header"> Lista de Productos </div>
                 <div class="card-body p-0">
                     <ul class="list-group">
-                        <li class="list-group-item" *ngFor="">An item</li>
+                        <li class="list-group-item" *ngIf="products.length == 0">
+                            No hay productos para mostrar
+                        </li>
+                        <li class="list-group-item puntero" *ngFor="let product of products" (click)="selectProduct(product)">
+                            {{ product.name |titlecase }}
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="col-8">
-            <div class="card mt-2">
+            <div class="card mt-2 w-50 centrado">
                 <div class="card-header ">Nuevo Producto</div>
                 <div class="card-body">
-                    <form>
+                    <form [formGroup]="productform">
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1 " class="form-label ">ID</label>
-                            <input type="form-control " class="form-control " id="exampleFormControlInput1 " placeholder="ID ">
+                            <label for="exampleFormControlInput1 " class="form-label">Codigo</label>
+                            <input type="text" class="form-control" name="exampleFormControlInput1" formControlName="id">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleFormControlInput1 " class="form-label ">Nombre de Producto</label>
-                            <input type="form-control " class="form-control " id="exampleFormControlInput1 " placeholder="Producto">
+                            <label for="exampleFormControlInput2" class="form-label ">
+                                Nombre
+                            </label>
+                            <input type="text" class="form-control" name="exampleFormControlInput2" formControlName="name">
                         </div>
-                        <div class="mb-3 ">
-                            <label for="exampleFormControlInput1 " class="form-label ">Precio</label>
-                            <input type="number " class="form-control " id="exampleFormControlInput1 " placeholder="Precio ">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput3" class="form-label ">
+                                Precio
+                            </label>
+                            <input type="number" class="form-control" name="exampleFormControlInput3" formControlName="price">
                         </div>
-                        <div class="mb-3 ">
-                            <label for="exampleFormControlInput1 " class="form-label ">Cantidad de producto</label>
-                            <input type="number " class="form-control " id="exampleFormControlInput1 " placeholder="Cantidad ">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput4" class="form-label ">
+                                Cantidad
+                            </label>
+                            <input type="number" class="form-control" name="exampleFormControlInput4" formControlName="quantity" placeholder="0">
                         </div>
-                        <div class="mb-3 ">
-                            <label for="exampleFormControlTextarea1 " class="form-label ">Descripcion</label>
-                            <input type="form-control " class="form-control " id="exampleFormControlInput1 " placeholder="Descripcion del producto">
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="flexCheckDefault" formControlName="state">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                  {{
+                                    productform.get('state')?.value ==true ? 'Activado' : 'Desactivado'
+                                  }}
+                                </label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput6" class="form-label ">
+                                Descripción	
+                            </label>
+                            <textarea type="number" class="form-control" name="exampleFormControlInput6" formControlName="description" rows="5">
+                            </textarea>
                         </div>
                         <div class="mb-3">
                             <label for="formFile" class="form-label">Seleccione una imagen</label>
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" type="file" id="image" name="formFile">
                         </div>
 
-                        <button type="button" class="btn btn-primary m-2">Agregar</button>
-                        <button type="button" class="btn btn-warning m-2">Editar</button>
-                        <button type="button" class="btn btn-danger m-2">Eliminar</button>
+                        <div class="d-flex justify-content-center w-100">
+                            <button type="button" class="btn btn-outline-primary rounded-circle border-0 m-2" (click)="setSave()" *ngIf="!btnActions.saveButtons">
+                                <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="btn btn-outline-warning rounded-circle border-0 m-2" (click)="setEdit()" *ngIf="productoSeleccionado != undefined && !btnActions.saveButtons">
+                                <i class="fa fa-pencil fa-2x p-1" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="btn btn-outline-danger rounded-circle border-0 m-2" (click)="delete()" *ngIf="productoSeleccionado != undefined && !btnActions.saveButtons">
+                                <i class="fa fa-trash fa-2x p-1" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="btn btn-outline-success rounded-circle border-0 m-2" (click)="save()" *ngIf="btnActions.saveButtons">
+                                <i class="fa fa-save fa-2x" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="btn btn-outline-danger rounded-circle border-0 m-2" *ngIf="btnActions.saveButtons" (click)="cancel()">
+                                <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+                            </button>
+
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <img [src]="productoSeleccionado?.image" alt="" width="200px" height="200px">
 </section>

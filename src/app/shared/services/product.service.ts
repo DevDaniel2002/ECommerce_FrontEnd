@@ -9,6 +9,6 @@ import { Products } from '../models/product.model';
 export class ProductService extends BaseService<Products>{
 
   constructor(http : HttpClient) {
-    super(http, 'Product');
+    super(http, 'Products');
   }
 }

@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   username: string = '';
   password: string = '';
   error: boolean = false;
+  msgerror: string = "";
 
   constructor(private router: Router,
                private userService: UserService) { 
@@ -32,7 +33,8 @@ export class LoginComponent implements OnInit {
   
   login(){
     if(this.username === "" && this.password === ""){
-      this.error = true;
+      this.error = true
+      this.msgerror = 'Todos los campos son obligatorios';
       setTimeout(() => {
         this.error = false;
       }, 3000);
@@ -51,6 +53,9 @@ export class LoginComponent implements OnInit {
                         else{
                           this.router.navigate(['/public/home']);
                         }
+                      } else {
+                        this.error = true
+                        this.msgerror = 'Usuario o contraseña incorrectos';
                       }
                     })
   }

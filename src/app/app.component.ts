@@ -17,13 +17,13 @@ export class AppComponent implements OnInit {
   
   ngOnInit() {
     this.router.events.subscribe( event => {
-        if(this.router.url.split("/").includes("login")){
+        if(this.router.url.split("/").includes("login") || this.router.url.split("/").includes("registrarse")){
           this.showNavBar = false;
         } else {
           this.showNavBar = true;
         }
     })
-    if(this.router.url.split("/").includes("login")){
+    if(this.router.url.split("/").includes("login") || this.router.url.split("/").includes("registrarse")){
       this.showNavBar = false;
     } else {
       this.showNavBar = true;

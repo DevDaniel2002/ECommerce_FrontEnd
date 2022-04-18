@@ -1,0 +1,46 @@
+<section class="h-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+
+                        <div class="mt-md-4">
+
+                            <h2 class="fw-bold mb-2 text-uppercase">Registrarse</h2>
+                            <form [formGroup]="nuevousuarioform">
+                                <div class="form-outline form-white mb-4 ">
+                                    <input type="text" id="txtname" placeholder="Nombres" class="form-control form-control-lg" formControlName="firstName" [ngClass]="{ 'is-invalid': error} " />
+                                </div>
+                                <div class="form-outline form-white mb-4 ">
+                                    <input type="text" id="txtapellido" placeholder="Apellidos" class="form-control form-control-lg" formControlName="lastName" [ngClass]="{ 'is-invalid': error} " />
+                                </div>
+                                <div class="form-outline form-white mb-4 ">
+                                    <input type="text" id="txtpassword" placeholder="Username" class="form-control form-control-lg" formControlName="userName" [ngClass]=" { 'is-invalid': error} " />
+                                </div>
+                                <div class="form-outline form-white mb-4 ">
+                                    <input type="password" id="psw " placeholder="Password" class="form-control form-control-lg" formControlName="password" [ngClass]="{ 'is-invalid': error} " />
+                                </div>
+                                <select class="form-control" formControlName="role">
+                                    <option value="0" selected hidden>Seleccione un rol</option>
+                                    <option value="1">Administrador</option>
+                                    <option value="2" >Cliente</option>
+                                </select>
+                            </form>
+                            <br>
+                            <br>
+
+                            <div class="alert alert-danger " *ngIf="error ">
+                                <p class="alert-heading ">Debe de ingresar todos los campos</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline-light btn-lg px-5 " type="submit " (click)="registrarse() ">Registrarse</button>
+                        <br>
+                        <br>
+                        <button class="btn btn-outline-light btn-lg px-5 " type="submit " routerLink="/public/home " (click)="guest() ">Entrar como Invitado</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
