@@ -39,13 +39,14 @@ export class HomeComponent implements OnInit {
     alert(`El producto ${this.productoSeleccionado.name} ha sido comprado con éxito`);
   }
   
-  sumar(){
-    this.productoSeleccionado.quantity = this.productoSeleccionado.quantity + 1;
-  }
-  restar(){
-    this.productoSeleccionado.quantity = this.productoSeleccionado.quantity - 1;
-  }
+  // sumar(){
+  //   this.productoSeleccionado.quantity = this.productoSeleccionado.quantity + 1;
+  // }
+  // restar(){
+    
+  // }
   update(){
+    this.productoSeleccionado.quantity = this.productoSeleccionado.quantity - 1;
     this.productservice.update(this.productoSeleccionado);
   }
 }

@@ -1,12 +1,13 @@
 <div class="row">
-    <div class="col-sm-4" *ngFor="let product of products">
+    <div class="col-sm-3" *ngFor="let product of products">
         <div class="card mt-5" style="width: 18rem;">
             <img class="card-img-top" [src]="product.image" alt="Card image cap">
             <div class="card-body">
                 <h4 class="card-title">{{product.name}}</h4>
                 <h5 class="card-title">Precio: {{product.price}} RD$</h5>
                 <p class="card-text">{{product.description}}</p>
-                <input value="1" step="1" min="1" size="2" class="mb-4" name="Quantity" type="number" [(ngModel)]="cantidad">
+
+                <input value="1" step="1" min="1" size="2" class="mb-4" name="Quantity" type="number" [(ngModel)]="cantidad" width="fit-content">
                 <button type="button" class="btn btn-primary" data-bs-target="#compra" data-bs-toggle="modal" (click)="seleccionarProducto(product)">Comprar ahora</button>
             </div>
         </div>
@@ -26,7 +27,7 @@
                 <p>Usted esta comprando {{cantidad}} de {{productoSeleccionado?.name}} por un valor de {{(productoSeleccionado?.price)*cantidad}} RD$</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="alert()">Comprar</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="alert()" (click)="update()">Comprar</button>
                 <button type=" button" class="btn btn-dager" data-bs-dismiss="modal">Cancelar Compra</button>
             </div>
         </div>
